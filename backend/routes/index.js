@@ -1,5 +1,7 @@
 const express = require('express');
 const UserRoute = require('./user');
+const accountRoute = require('./account');
+
 
 const router = express.Router();
 
@@ -8,5 +10,7 @@ router.get("/", (req, res)=>{
 })
 
 router.use('/user', UserRoute)
+router.use('/account', accountRoute)
+
 
 module.exports = router
