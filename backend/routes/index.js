@@ -1,16 +1,10 @@
-const express = require('express');
-const UserRoute = require('./user');
-const accountRoute = require('./account');
-
+const express = require("express");
+const userRouter = require("./user");
+const accountRouter = require("./account");
 
 const router = express.Router();
 
-router.get("/", (req, res)=>{
-    res.json("On /api/v1")
-})
+router.use("/user", userRouter);
+router.use("/account", accountRouter);
 
-router.use('/user', UserRoute)
-router.use('/account', accountRoute)
-
-
-module.exports = router
+module.exports = router;

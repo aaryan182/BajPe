@@ -1,25 +1,34 @@
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = require("./config");
 
-function authMiddleware(req, res, next) {
+const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
-  if (!authHeader.startswith("Bearer ")) {
-    res.status(403).json({
-      msg: "Inproper Header",
-    });
-    return;
-  }
-  const token = authHeader.split(" ")[1];
-  try {
-    const decode = jwt.verify(token, JWT_SECRET);
-    req.username = decode.username;
-    next();
-  } catch (err) {
-    res.status(403).json({
-      msg: "Invalid Token",
-    });
-    return;
-  }
-}
 
-module.exports = authMiddleware;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(403).json({
+      message: "Invalid auth header",
+    });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    if (decoded.userId) {
+      req.userId = decoded.userId;
+      next();
+    } else {
+      return res.status(403).json({
+        message: "Invalid auth header",
+      });
+    }
+  } catch (err) {
+    return res.status(403).json({
+      message: "Invalid auth header",
+    });
+  }
+};
+
+module.exports = {
+  authMiddleware,
+};
