@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = require("./config");
 
-function authMiddlewar(req, res, next) {
+function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader.startswith("Bearer ")) {
     res.status(403).json({
@@ -22,4 +22,4 @@ function authMiddlewar(req, res, next) {
   }
 }
 
-module.exports = authMiddlewar;
+module.exports = authMiddleware;

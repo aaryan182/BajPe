@@ -4,7 +4,7 @@ const {User} = require("../db");
 const {Account} = require("../db");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = require("../config");
-const authMiddlewar = require("../middleware");
+const authMiddleware = require("../middleware");
 
 const UserRoute = express.Router();
 
@@ -100,7 +100,7 @@ UserRoute.post("/signin", async (req, res) => {
   return;
 });
 
-UserRoute.put("/update", authMiddlewar, async (req, res) => {
+UserRoute.put("/update", authMiddleware, async (req, res) => {
   try {
     const updateUser = await User.findOneAndUpdate(
       {
@@ -120,7 +120,7 @@ UserRoute.put("/update", authMiddlewar, async (req, res) => {
   }
 });
 
-UserRoute.get("/bulk", authMiddlewar, async (req, res) => {
+UserRoute.get("/bulk", authMiddleware, async (req, res) => {
   const filter = req.query.filter;
   const users = [];
   try {
