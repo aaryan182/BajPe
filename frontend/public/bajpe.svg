@@ -1,0 +1,19 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="#00A9E0"/>
+
+  <!-- Letter B -->
+  <path d="M 60 60 Q 80 60 80 80 Q 80 100 60 100 M 60 100 Q 80 100 80 120 Q 80 140 60 140 L 60 60" fill="none" stroke="white" stroke-width="10"/>
+
+  <!-- Letter A -->
+  <path d="M 100 140 L 120 60 L 140 140 M 108 120 L 132 120" fill="none" stroke="white" stroke-width="10"/>
+
+  <!-- Letter J -->
+  <path d="M 160 60 L 160 100 Q 160 140 130 140" fill="none" stroke="white" stroke-width="10"/>
+
+  <!-- Letter P -->
+  <path d="M 190 60 L 190 140 M 190 60 Q 220 60 220 100 Q 220 140 190 140" fill="none" stroke="white" stroke-width="10"/>
+
+  <!-- Letter E -->
+  <path d="M 250 60 L 220 60 M 220 100 L 250 100 M 250 140 L 220 140" fill="none" stroke="white" stroke-width="10"/>
+</svg>
