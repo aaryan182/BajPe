@@ -15,7 +15,7 @@ export const Dashboard = () => {
       navigate("/signin");
     } else {
       axios
-        .get("http://localhost:3000/api/v1/account/balance", {
+        .get(import.meta.env.VITE_SERVER_URL + "/api/v1/account/balance", {
           headers: {
             Authorization: "Bearer " + userToken,
           },
