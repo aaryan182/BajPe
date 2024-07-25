@@ -18,7 +18,7 @@ export const SendMoney = () => {
   const [amount, setAmount] = useState(0);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center h-screen bg-emerald-300">
       <div className="h-full flex flex-col justify-center">
         <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
           <div className="flex flex-col p-6">
@@ -63,7 +63,6 @@ export const SendMoney = () => {
                       },
                     }
                   );
-                  // console.log(res.data.message);
                   navigate("/paymentstatus?message=" + res?.data.message);
                 }}
                 className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white"
